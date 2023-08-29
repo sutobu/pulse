@@ -1,0 +1,48 @@
+.catalogue{
+    padding-bottom: 100px;
+    h2{
+        color: #0D0D0D;
+        font-size: 30px;
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+    }
+    &__tabs{
+        margin-top: 46px;
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+        padding-left: 0;
+       
+    }
+    &__onetab{
+        width: 222px;
+        height: 52px;
+        border: 2px solid #d0d0d0;
+        color: #6B6B6B;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 400;
+        text-transform: uppercase; /*великий шрифт*/
+        line-height: 50px;
+        margin: 0 5px;
+        cursor: pointer;
+        transform: skewX(-25deg); /*можна трішки наклонити потрібний блок*/
+        /*текст трансформувався також тому ми охоплюємо його в дів і єбашимо новий трансформ*/
+        div{
+            transform: skewX(25deg);
+        }
+        &_active{
+            background-color:  $main-color;
+            color: #FFF;
+            border-style: none;
+        }
+        transition: 0.5s all;
+        &:hover{
+            box-shadow: 3px 3px 25px $main-color;
+            border: none;
+        }
+    }
+}

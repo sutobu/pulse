@@ -17,4 +17,9 @@ $(document).ready(function(){
             }
         ]
     });
+    $('ul.catalogue__tabs').on('click', 'li:not(.catalogue__onetab_active)', function() {
+        $(this)
+          .addClass('catalogue__onetab_active').siblings().removeClass('catalogue__onetab_active')
+          .closest('div.container').find('div.catalogue__content').removeClass('catalogue__content_active').eq($(this).index()).addClass('catalogue__content_active');
+      });
 });

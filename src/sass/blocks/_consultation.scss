@@ -9,4 +9,12 @@
         font-weight: 500;
         line-height: 30px;
     }
+    .error{
+        border: 2px solid $main-color;
+    }
+    label.error{
+        color: #FFF;
+        border: none;
+        margin-bottom: 10px;
+    }
 }

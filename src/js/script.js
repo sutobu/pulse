@@ -36,4 +36,75 @@ $(document).ready(function(){
 
     toggleSlide('.catalogue-item__link');
     toggleSlide('.catalogue-item__back');
+
+
+    //modal
+
+    $('[data-modal=consultation]').on('click', function(){
+        $('.overlay, #consultation').fadeIn('slow');
+    });
+    $('.modal__close').on('click', function(){
+        $('.overlay, #consultation, #order, #thanks').fadeOut('slow');
+    });
+    $('.button_mini').each(function(i){
+        $(this).on('click', function(){
+            $('#order .modal__descr').text($('.catalogue-item__subtitle').eq(i).text());
+            $('.overlay, #order').fadeIn('slow');
+        });
+    });
+
+    
+    // $('#consultation-form').validate({});
+    // $('#consultation form').validate({
+    //     rules: {
+    //         name: "required",
+    //         phone: "required",
+    //         email: {
+    //           required: true,
+    //           email: true
+    //         }
+    //     },
+    //     messages: {
+    //         name: "Будь-ласка впишіть Ваше ім'я",
+    //         phone: "Будь-ласка впишіть Ваш номер телефону",
+    //         email: {
+    //           required: "Нам потрібен Ваш e-mail для контакту з вами",
+    //           email: "Неправильний формат e-mail"
+    //         }
+    //     },
+    // });
+    // $('#order form').validate({});
+
+    function valideForms(form){
+        $(form).validate({
+            rules: {
+                name: {
+                    required: true,
+                    minlength: 2,
+                },
+                phone: "required",
+                email: {
+                  required: true,
+                  email: true
+                }
+            },
+            messages: {
+                name: {
+                    required: "Будь-ласка впишіть Ваше ім'я",
+                    minlength: jQuery.validator.format("Мінімум {0} символа!")
+                },
+                phone: "Будь-ласка впишіть Ваш номер телефону",
+                email: {
+                  required: "Нам потрібен Ваш e-mail для контакту з вами",
+                  email: "Неправильний формат e-mail"
+                }
+            },
+        });
+    }
+
+    valideForms('#consultation form');
+    valideForms('#consultation-form');
+    valideForms('#order form');
+
+    $('input[name=phone]').mask("+38 (999) 999-99-99");
 });
